@@ -1,0 +1,30 @@
+POST http://localhost:3003/api/activities
+Content-Type: application/json
+
+{
+    "name": "Obedece a las profesoras"
+}
+
+###
+POST http://localhost:3003/api/activities
+Content-Type: application/json
+
+{
+    "name": "Comportamiento con los compañeros"
+}
+
+###
+POST http://localhost:3003/api/activities
+Content-Type: application/json
+
+{
+    "name": "Obedece a los padres"
+}
+
+###
+POST http://localhost:3003/api/activities
+Content-Type: application/json
+
+{
+    "name": "Recoge los juguetes"
+}

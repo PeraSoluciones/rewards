@@ -1,4 +1,5 @@
 const behaviorRouter = require('express').Router();
+const supabase = require('../utils/connection');
 
 const data = [
   {
@@ -41,5 +42,7 @@ const data = [
 behaviorRouter.get('/', (req, res) => {
   res.json(data);
 });
+
+behaviorRouter.post('/', (req, res) => {});
 
 module.exports = behaviorRouter;
