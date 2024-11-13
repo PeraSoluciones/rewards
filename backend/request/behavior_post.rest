@@ -1,0 +1,53 @@
+POST http://localhost:3003/api/behavior
+Content-Type: application/json
+
+{
+    "person_id": 1,
+    "date": "12-11-2024",
+    "behavior": "positive",
+    "activity_id": 8
+}
+
+###
+POST http://localhost:3003/api/behavior
+Content-Type: application/json
+
+{
+    "person_id": 1,
+    "date": "12-11-2024",
+    "behavior": "positive",
+    "activity_id": 9
+}
+
+###
+POST http://localhost:3003/api/behavior
+Content-Type: application/json
+
+{
+    "person_id": 1,
+    "date": "12-11-2024",
+    "behavior": "negative",
+    "activity_id": 10
+}
+
+###
+POST http://localhost:3003/api/behavior
+Content-Type: application/json
+
+{
+    "person_id": 1,
+    "date": "12-11-2024",
+    "behavior": "negative",
+    "activity_id": 13
+}
+
+### Wrong data type
+POST http://localhost:3003/api/behavior
+Content-Type: application/json
+
+{
+    "person_id": 1,
+    "date": "12-11-2024",
+    "behavior": true,
+    "activity_id": 13
+}

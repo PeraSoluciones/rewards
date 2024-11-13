@@ -1,0 +1,6 @@
+PUT http://localhost:3003/api/behavior/1
+Content-Type: application/json
+
+{
+    "behavior": "positive"
+}

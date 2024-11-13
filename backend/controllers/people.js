@@ -7,9 +7,8 @@ peopleRouter.post('/', async (req, res, next) => {
     .insert(req.body)
     .select();
 
-  if (error) console.log(error.message);
+  if (error) next(error);
   res.json(data);
-  next();
 });
 
 module.exports = peopleRouter;

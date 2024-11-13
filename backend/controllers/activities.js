@@ -6,10 +6,9 @@ activitiesRouter.post('/', async (req, res, next) => {
     .from('activities')
     .insert(req.body)
     .select();
-  if (error) console.log('error=>', error.message);
+  if (error) next(error);
 
   res.json(data);
-  next();
 });
 
 module.exports = activitiesRouter;
