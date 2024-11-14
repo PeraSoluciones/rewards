@@ -1,0 +1,14 @@
+PUT http://localhost:3003/api/activities/8
+Content-Type: application/json
+
+{
+    "description": "ESCUELA"
+}
+
+###
+PUT http://localhost:3003/api/activities/10
+Content-Type: application/json
+
+{
+    "description": "CASA"
+}

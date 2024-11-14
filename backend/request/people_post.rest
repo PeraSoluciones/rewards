@@ -5,3 +5,12 @@ Content-Type: application/json
     "name": "Pablo Yahir",
     "birth": "09-06-2018"
 }
+
+###
+POST http://localhost:3003/api/people
+Content-Type: application/json
+
+{
+    "name": "Felipe Jose",
+    "birth": "2019-11-20"
+}

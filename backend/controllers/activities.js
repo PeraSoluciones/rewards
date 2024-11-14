@@ -1,6 +1,14 @@
 const activitiesRouter = require('express').Router();
 const supabase = require('../utils/connection');
 
+activitiesRouter.get('/', async (req, res, next) => {
+  const { data, error } = await supabase.from('activities').select();
+
+  if (error) next(error);
+
+  res.status(200).json(data);
+});
+
 activitiesRouter.post('/', async (req, res, next) => {
   const { data, error } = await supabase
     .from('activities')
@@ -9,6 +17,30 @@ activitiesRouter.post('/', async (req, res, next) => {
   if (error) next(error);
 
   res.json(data);
+});
+
+activitiesRouter.put('/:id', async (req, res, next) => {
+  const { data, error } = await supabase
+    .from('activities')
+    .update(req.body)
+    .eq('id', req.params.id)
+    .select();
+
+  if (error) next(error);
+
+  res.status(201).json(data);
+});
+
+activitiesRouter.delete('/:id', async (req, res, next) => {
+  const { data, error } = await supabase
+    .from('activities')
+    .delete()
+    .eq('id', req.params.id)
+    .select();
+
+  if (error) next(error);
+
+  res.status(201).json(data);
 });
 
 module.exports = activitiesRouter;

@@ -1,0 +1,6 @@
+PUT http://localhost:3003/api/people/1
+Content-Type: application/json
+
+{
+    "birth":"2018-06-09"
+}

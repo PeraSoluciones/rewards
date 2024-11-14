@@ -28,3 +28,11 @@ Content-Type: application/json
 {
     "name": "Recoge los juguetes"
 }
+
+###
+POST http://localhost:3003/api/activities
+Content-Type: application/json
+
+{
+    "name": "No responde de manera altanera a los padres"
+}
