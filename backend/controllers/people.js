@@ -16,7 +16,7 @@ peopleRouter.post('/', async (req, res, next) => {
     .select();
 
   if (error) next(error);
-  res.json(data);
+  else res.status(201).json(data);
 });
 
 peopleRouter.put('/:id', async (req, res, next) => {
@@ -27,8 +27,7 @@ peopleRouter.put('/:id', async (req, res, next) => {
     .select();
 
   if (error) next(error);
-
-  res.status(201).json(data);
+  else res.status(201).json(data);
 });
 
 peopleRouter.delete('/:id', async (req, res, next) => {
@@ -39,8 +38,7 @@ peopleRouter.delete('/:id', async (req, res, next) => {
     .select();
 
   if (error) next(error);
-
-  res.status(201).json(data);
+  else res.status(204).json(data);
 });
 
 module.exports = peopleRouter;

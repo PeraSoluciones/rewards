@@ -15,8 +15,7 @@ activitiesRouter.post('/', async (req, res, next) => {
     .insert(req.body)
     .select();
   if (error) next(error);
-
-  res.json(data);
+  else res.status(201).json(data);
 });
 
 activitiesRouter.put('/:id', async (req, res, next) => {
@@ -27,8 +26,7 @@ activitiesRouter.put('/:id', async (req, res, next) => {
     .select();
 
   if (error) next(error);
-
-  res.status(201).json(data);
+  else res.status(201).json(data);
 });
 
 activitiesRouter.delete('/:id', async (req, res, next) => {
@@ -39,8 +37,7 @@ activitiesRouter.delete('/:id', async (req, res, next) => {
     .select();
 
   if (error) next(error);
-
-  res.status(201).json(data);
+  else res.status(204).json(data);
 });
 
 module.exports = activitiesRouter;
