@@ -2,10 +2,12 @@ const behaviorRouter = require('express').Router();
 const supabase = require('../utils/connection');
 
 behaviorRouter.get('/', async (req, res, next) => {
-  const { data, error } = await supabase.from('behavior_tracking').select();
-  if (error) next(error);
+  const { data, error } = await supabase
+    .from('behavior_tracking')
+    .select('id, people(*), date, behavior, activities(*)');
 
-  res.json(data);
+  if (error) next(error);
+  else res.status(200).json(data);
 });
 
 behaviorRouter.post('/', async (req, res, next) => {
@@ -15,8 +17,7 @@ behaviorRouter.post('/', async (req, res, next) => {
     .select();
 
   if (error) next(error);
-
-  res.status(200).json(data);
+  else res.status(201).json(data);
 });
 
 behaviorRouter.put('/:id', async (req, res, next) => {
@@ -27,7 +28,7 @@ behaviorRouter.put('/:id', async (req, res, next) => {
     .select();
 
   if (error) next(error.message);
-  res.status(201).json(data);
+  else res.status(201).json(data);
 });
 
 behaviorRouter.delete('/:id', async (req, res, next) => {
@@ -38,7 +39,7 @@ behaviorRouter.delete('/:id', async (req, res, next) => {
     .select();
 
   if (error) next(error);
-  res.status(204).json(data);
+  else res.status(204).json(data);
 });
 
 module.exports = behaviorRouter;
