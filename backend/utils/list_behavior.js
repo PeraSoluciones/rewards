@@ -1,34 +1,40 @@
-const behavior = [
-  {
-    person_id: 1,
-    date: '2024-11-01',
-    behavior: 'positive',
-    activity_id: 3,
-  },
-  {
-    person_id: 1,
-    date: '2024-11-01',
-    behavior: 'negative',
-    activity_id: 1,
-  },
-  {
-    person_id: 1,
-    date: '2024-11-01',
-    behavior: 'negative',
-    activity_id: 2,
-  },
-  {
-    person_id: 1,
-    date: '2024-11-01',
-    behavior: 'positive',
-    activity_id: 4,
-  },
-  {
-    person_id: 1,
-    date: '2024-11-01',
-    behavior: 'positive',
-    activity_id: 5,
-  },
-];
+const behavior = {
+  set1: [
+    {
+      date: '2024-11-01',
+      behavior: 'positive',
+    },
+    {
+      date: '2024-11-01',
+      behavior: 'negative',
+    },
+    {
+      date: '2024-11-01',
+      behavior: 'negative',
+    },
+    {
+      date: '2024-11-01',
+      behavior: 'positive',
+    },
+    {
+      date: '2024-11-01',
+      behavior: 'positive',
+    },
+  ],
+  set2: [
+    {
+      date: '2024-10-31',
+      behavior: 'negative',
+    },
+    {
+      date: '2024-10-31',
+      behavior: 'positive',
+    },
+    {
+      date: '2024-10-31',
+      behavior: 'negative',
+    },
+  ],
+};
 
 module.exports = { behavior };

@@ -7,7 +7,11 @@ behaviorRouter.get('/', async (req, res, next) => {
     .select('id, people(*), date, behavior, activities(*)');
 
   if (error) next(error);
-  else res.status(200).json(data);
+  else if (data?.length) res.status(200).json(data);
+  else {
+    const err = { message: 'row-level security policy violation' };
+    next(err);
+  }
 });
 
 behaviorRouter.post('/', async (req, res, next) => {
@@ -17,7 +21,11 @@ behaviorRouter.post('/', async (req, res, next) => {
     .select();
 
   if (error) next(error);
-  else res.status(201).json(data);
+  else if (data?.length) res.status(201).json(data);
+  else {
+    const err = { message: 'row-level security policy violation' };
+    next(err);
+  }
 });
 
 behaviorRouter.put('/:id', async (req, res, next) => {
@@ -27,8 +35,12 @@ behaviorRouter.put('/:id', async (req, res, next) => {
     .eq('id', req.params.id)
     .select();
 
-  if (error) next(error.message);
-  else res.status(201).json(data);
+  if (error) next(error);
+  else if (data?.length) res.status(201).json(data);
+  else {
+    const err = { message: 'row-level security policy violation' };
+    next(err);
+  }
 });
 
 behaviorRouter.delete('/:id', async (req, res, next) => {
@@ -39,7 +51,11 @@ behaviorRouter.delete('/:id', async (req, res, next) => {
     .select();
 
   if (error) next(error);
-  else res.status(204).json(data);
+  else if (data?.length) res.status(204).json(data);
+  else {
+    const err = { message: 'row-level security policy violation' };
+    next(err);
+  }
 });
 
 module.exports = behaviorRouter;
