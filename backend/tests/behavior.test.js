@@ -206,13 +206,9 @@ describe('when there is initially some registers saved', () => {
       const response = await api
         .put(`/api/behavior/${data[0].id}`, behaviorToUpdate)
         .send(behaviorToUpdate)
-        .expect(400);
+        .expect(201);
 
-      assert(
-        response.body.err.message.includes(
-          'row-level security policy violation'
-        )
-      );
+      assert.equal(response.body.length, 0);
     });
   });
 
@@ -240,7 +236,7 @@ describe('when there is initially some registers saved', () => {
       });
       const response = await api
         .delete(`/api/behavior/${data[0].id}`)
-        .expect(400);
+        .expect(204);
     });
   });
 });

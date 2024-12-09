@@ -33,44 +33,14 @@ describe('Update activities', () => {
   //     if (errorActivities) console.log(errorActivities.message);
   //   });
 
-  test('succeed on authorized user', async () => {
+  test('empty table', async () => {
     await supabase.auth.signInWithPassword({
-      email: 'pabloaucapina2@hotmail.com',
-      password: 'pera0609',
-    });
-
-    const activityUpdate = {
-      name: 'Obedece a los padres cuando hay visitas',
-    };
-
-    const response = await api
-      .put(
-        `/api/activities/37c72a84-d849-4392-8a09-42dab01c50d0`,
-        activityUpdate
-      )
-      .send(activityUpdate);
-
-    assert(response.body[0].name.includes(activityUpdate.name));
-  });
-
-  test('fails on unauthorized user', async () => {
-    await supabase.auth.signInWithPassword({
+      // email: 'pabloaucapina2@hotmail.com',
       email: 'soluciones.pera@gmail.com',
       password: 'pera0609',
     });
-
-    const activityUpdate = {
-      name: 'Obedece a los padres',
-    };
-
-    const response = await api
-      .put(
-        `/api/activities/37c72a84-d849-4392-8a09-42dab01c50d0`,
-        activityUpdate
-      )
-      .send(activityUpdate);
-
-    assert(response.body.length === 0);
+    const { data, error } = await supabase.from('activities').select();
+    console.log(data);
   });
 });
 

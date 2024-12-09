@@ -194,13 +194,9 @@ describe('when there is initially some activities saved', () => {
       const response = await api
         .put(`/api/activities/${data[0].id}`, activityUpdate)
         .send(activityUpdate)
-        .expect(400);
+        .expect(201);
 
-      assert(
-        response.body.err.message.includes(
-          'row-level security policy violation'
-        )
-      );
+      assert.equal(response.body.length, 0);
     });
   });
 

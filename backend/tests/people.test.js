@@ -193,13 +193,9 @@ describe('when there are initially some people saved', () => {
       const response = await api
         .put(`/api/people/${data[0].id}`, personUpdate)
         .send(personUpdate)
-        .expect(400);
+        .expect(201);
 
-      assert(
-        response.body.err.message.includes(
-          'row-level security policy violation'
-        )
-      );
+      assert.equal(response.body.length, 0);
     });
   });
 

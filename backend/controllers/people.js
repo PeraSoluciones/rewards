@@ -5,11 +5,7 @@ peopleRouter.get('/', async (req, res, next) => {
   const { data, error } = await supabase.from('people').select();
 
   if (error) next(error);
-  else if (data?.length) res.status(200).json(data);
-  else {
-    const err = { message: 'row-level security policy violation' };
-    next(err);
-  }
+  else res.status(200).json(data);
 });
 
 peopleRouter.post('/', async (req, res, next) => {
@@ -19,11 +15,7 @@ peopleRouter.post('/', async (req, res, next) => {
     .select();
 
   if (error) next(error);
-  else if (data?.length) res.status(201).json(data);
-  else {
-    const err = { message: 'row-level security policy violation' };
-    next(err);
-  }
+  else res.status(201).json(data);
 });
 
 peopleRouter.put('/:id', async (req, res, next) => {
@@ -34,11 +26,7 @@ peopleRouter.put('/:id', async (req, res, next) => {
     .select();
 
   if (error) next(error);
-  else if (data?.length) res.status(201).json(data);
-  else {
-    const err = { message: 'row-level security policy violation' };
-    next(err);
-  }
+  else res.status(201).json(data);
 });
 
 peopleRouter.delete('/:id', async (req, res, next) => {
@@ -49,11 +37,7 @@ peopleRouter.delete('/:id', async (req, res, next) => {
     .select();
 
   if (error) next(error);
-  else if (data?.length) res.status(204).json(data);
-  else {
-    const err = { message: 'row-level security policy violation' };
-    next(err);
-  }
+  else res.status(204).json(data);
 });
 
 module.exports = peopleRouter;
